@@ -14,10 +14,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <maven-core.version>3.3.9</maven-core.version>
-    <maven-plugin-api.version>3.3.9</maven-plugin-api.version>
+    <maven-core.version>LATEST</maven-core.version>
+    <maven-plugin-api.version>LATEST</maven-plugin-api.version>
     <maven-plugin-annotations.version>LATEST</maven-plugin-annotations.version>
-    <fastutil.version>8.1.0</fastutil.version>
+    <fastutil.version>LATEST</fastutil.version>
     <freemarker.version>LATEST</freemarker.version>
   </properties>
 
@@ -67,12 +67,6 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <!--<dependency>-->
-      <!--<groupId>org.jmockit</groupId>-->
-      <!--<artifactId>jmockit</artifactId>-->
-      <!--<version>${jmockit.version}</version>-->
-      <!--<scope>test</scope>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
@@ -101,23 +95,6 @@
             <goals>
               <goal>jar</goal>
             </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-plugins</artifactId>
-        <version>33</version>
-        <configuration>
-          <goalPrefix>freemarker</goalPrefix>
-        </configuration>
-        <executions>
-          <execution>
-            <id>default-descriptor</id>
-            <goals>
-              <goal>descriptor</goal>
-            </goals>
-            <phase>process-classes</phase>
           </execution>
         </executions>
       </plugin>
