@@ -1,6 +1,0 @@
-{
-  "templateName": "test.ftl",
-  "dataModel": {
-    "testVar": "test value"
-  }
-}
