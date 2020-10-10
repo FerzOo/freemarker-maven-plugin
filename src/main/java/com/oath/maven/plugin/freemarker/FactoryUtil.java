@@ -53,9 +53,12 @@ public class FactoryUtil {
 
     public static Map<File, File> createFilesFromNamesInDir(String prefix,
                                                             List<File> postfixFiles, Path dir) {
+        prefix = prefix.substring(0, prefix.length() - 5);
         Map<File, File> map = new HashMap<>();
         for (File postfixFile : postfixFiles) {
-            String fileName = prefix + postfixFile.getName() + ".java";
+            String postfixFileName = postfixFile.getName();
+            postfixFileName = postfixFileName.substring(0, postfixFileName.length() - 4);
+            String fileName = prefix + postfixFileName + ".java";
             File file = createFile(dir.toFile(), fileName);
             map.put(postfixFile, file);
         }
@@ -67,4 +70,5 @@ public class FactoryUtil {
                 .map(File::getName)
                 .collect(Collectors.toList());
     }
+
 }
