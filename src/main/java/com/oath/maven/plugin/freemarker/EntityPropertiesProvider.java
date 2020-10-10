@@ -6,18 +6,22 @@ import java.util.*;
 
 public class EntityPropertiesProvider implements OutputGeneratorPropertiesProvider {
 
-    private EntityPropertiesProvider() {
+    private final File outputDir;
+
+    private EntityPropertiesProvider(File outputDir) {
+        this.outputDir = outputDir;
     }
 
-    public static EntityPropertiesProvider create() {
-        return new EntityPropertiesProvider();
+    public static EntityPropertiesProvider create(File outputDir) {
+        return new EntityPropertiesProvider(outputDir);
     }
 
     @Override
     public void providePropertiesFromFile(Path path, OutputGenerator.OutputGeneratorBuilder builder) {
         File entityFile = path.toFile();
         Map<String, Object> data = parseEntity(entityFile);
-
+        String outputPackage = outputDir.getName().substring(11);
+        data.put("outputPackage", outputPackage);
         builder.addDataModel(data);
     }
 

@@ -98,7 +98,7 @@ public class FreeMarkerMojo extends AbstractMojo {
         }
 
         Map<String, OutputGeneratorPropertiesProvider> extensionToBuilders = new HashMap<>(1);
-        extensionToBuilders.put(".java", EntityPropertiesProvider.create());
+        extensionToBuilders.put(".java", EntityPropertiesProvider.create(outputDirectory));
 
         GeneratingFileVisitor fileVisitor = new GeneratingFileVisitor(config, session,
                 extensionToBuilders, templateDirectory, outputDirectory);
