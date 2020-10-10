@@ -20,8 +20,6 @@ public class EntityPropertiesProvider implements OutputGeneratorPropertiesProvid
     public void providePropertiesFromFile(Path path, OutputGenerator.OutputGeneratorBuilder builder) {
         File entityFile = path.toFile();
         Map<String, Object> data = parseEntity(entityFile);
-        String outputPackage = outputDir.getName().substring(11);
-        data.put("outputPackage", outputPackage);
         builder.addDataModel(data);
     }
 
